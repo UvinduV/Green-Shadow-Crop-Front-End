@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter','Poppins',sans-serif;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #FF9933;
+    background-image: url("/assets/image/welcome.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* navbar */
+#navbar-color{
+    background-color: #34AD54;
+    /* background: linear-gradient(#119634, #cdf560); */
+    box-shadow: 0px -11px 4px 10px black;
+    border-radius: 0 40px 0 40px;
+    border-left: 10px solid #FF9933;
+    border-bottom: 0px solid #FF9933;
+}
+#logo {
+    font-size: 30px;
+    color: #ffffff;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-weight: bold;
+}
+#logo img{
+    margin-bottom: 10px;
+}
+#logo span{
+    color: #FF9933;
+}
+.navbar-nav{
+    margin-left: 100px;
+}
+.nav-link{
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: 0.6s ease;
+    box-shadow: 0px 2px 0px 2px #7fc92b;
+    border-radius: 0 15px 0 20px;
+}
+.nav-link:hover{
+    background-color: #FF9933;
+    color: white;
+    border-radius: 0 25px 0 25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.nav-link:active{
+    background-color: #34AD54;
+    color: white;
+
+}
+#btn a{
+    text-decoration: none;
+}
+#btn-logOut button{
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    border: 2px solid red;
+    background: red;
+    border-radius: 5px;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#btn-logOut button:hover{
+    background-color: #ffffff;
+    color: red;
+}
+
+@media screen and (max-width:1000px){
+    .navbar-nav{
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width:1338px){
+    #btn-logOut{
+        margin-right: 50px;
+
+    }
+    #btn-logOut button{
+        width: 90px;
+        height: 25px;
+        font-size: 15px;
+    }
+    .nav-link{
+        font-size: 14px;
+    }
+
+}
+/* navbar end */
+
+/* home section */
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+    margin-top: 120px;
+    background: transparent;
+}
+
+.content{
+    margin-top: 60px;
+}
+.content h1{
+    font-size: 50px;
+}
+.content h3{
+    font-size: 80px;
+    font-weight: bolder;
+    text-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    color: #ffffff;
+}
+.content p{
+    color: #78e355;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#btn-login{
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #7fc92b;
+}
+.btn{
+    width: 100px;
+    height: 35px;
+    font-weight: bold;
+    background-color: #0ea10e;
+    color: white;
+    border-radius: 0 20px 0 20px;
+    box-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.btn:hover{
+    background-color: #ffffff;
+    color: #0ea10e;
+    font-weight: bold;
+    border: 2px solid #0ea10e;
+
+}
+
+@media screen and (max-width:800px){
+    .content h3{
+        margin-left: 50px;
+        font-size: 40px;
+    }
+    .content p{
+        margin-left: 50px;
+        font-size: 10px;
+    }
+    .content .btn{
+        margin-left: 50px;
+    }
+}
+@media screen and (max-width:570px){
+    .content h3{
+        margin-left: 20px;
+    }
+    .content p{
+        margin-left: 20px;
+        font-size: 5px;
+    }
+    .content .btn{
+        margin-left: 20px;
+    }
+}
+
+/* home section */
