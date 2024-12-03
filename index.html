@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!--login form styles-->
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <!-- animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -36,25 +38,25 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar" >
             <ul class="navbar-nav" id="navLink-section">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <span class="nav-link" id="nav-dashboard">Home</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Field</a>
+                    <span class="nav-link" id="nav-field">Field</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Crop</a>
+                    <span class="nav-link" id="nav-crop">Crop</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Staff</a>
+                    <span class="nav-link" id="nav-staff">Staff</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Vehicle</a>
+                    <span class="nav-link" id="nav-vehicle">Vehicle</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Equ</a>
+                    <span class="nav-link" id="nav-equipment">Equ</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logs</a>
+                    <span class="nav-link" id="nav-logs">Logs</span>
                 </li>
 
                 <li>
@@ -144,6 +146,141 @@
         </div>
     </div>
 </div>
+<!--Dashboard Section-->
+<section id="dashboard-section">
+    <h1 class="text-start section-header"><i class="fab fa-delicious f-left"></i>Dashboard</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xl-3 mb-3">
+                <div class="card bg-c-blue order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Number Of Fields</h6>
+                        <h2 class="text-right"><i class="fab fa-delicious f-left"></i><span>80</span></h2>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-3">
+                <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Number Of Staff</h6>
+                        <h2 class="text-right"><i class="fa-solid fa-people-group f-left"></i><span>320</span></h2>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-3">
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Number Of Vehicles</h6>
+                        <h2 class="text-right"><i class="fa-solid fa-truck f-left"></i><span>96</span></h2>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-3">
+                <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Number Of Equipments</h6>
+                        <h2 class="text-right"><i class="fa-solid fa-trowel f-left"></i><span>450</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Field -->
+<section id="field-section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+        <h1 class="text-start section-header">
+            <!--<i class="fab fa-delicious f-left"></i>-->Field</h1>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <!-- Form Section -->
+                <div class="form-card overflow-hidden">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Field Name</label>
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter field name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Field Location (Coordinate)</label>
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="">
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Extent Size (sq. m)</label>
+                            <input type="number" class="form-control mb-4 shadow-none" placeholder="Enter extent size in sq. m">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Crops</label>
+                            <select id="crop-type" class="form-control mb-4 shadow-none">
+                                <!--<option value="banana">Banana</option>
+                                <option value="papaya">Papaya</option>
+                                <option value="guava">Guava</option>-->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Staff</label>
+                            <select id="staff-type" class="form-control mb-4 shadow-none">
+                                <!--<option value="perera">Perera</option>
+                                <option value="silva">Silva</option>
+                                <option value="mendis">Mendis</option>-->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Field Image 1</label>
+                            <input type="file" class="form-control mb-4 shadow-none" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Field Image 2</label>
+                            <input type="file" class="form-control mb-4 shadow-none" accept="image/*">
+                        </div>
+                        <div class="text-right mt-3">
+                            <button type="button" class="btn btn-warning">Save</button>
+                            <button type="button" class="btn btn-info">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <!-- Table Section -->
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Field Image</th>
+                                <th scope="col">Field Name</th>
+                                <th scope="col">Field Location</th>
+                                <th scope="col">Extent Size</th>
+                                <th scope="col">Crops</th>
+                                <th scope="col">Staff</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+
 
 
 
@@ -155,7 +292,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- login js -->
+<!-- main js -->
+<script src="/js/main.js"></script>
+
 <script>
     AOS.init();
 </script>
