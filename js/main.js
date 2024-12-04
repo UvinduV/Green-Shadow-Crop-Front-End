@@ -6,6 +6,7 @@ $("#dashboard-section").css({display: 'none'});
 $('#field-section').css({display: 'none'});
 
 $('#crop-section').css({display: 'none'});
+$('#staff-section').css({display: 'none'});
 
 
 $('#btn-login-home').on('click', () => {
