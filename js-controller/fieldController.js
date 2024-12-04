@@ -17,7 +17,7 @@ function loadFields() {
                     <tr style="cursor:pointer">
                         <td class="field-code-value">${field.fieldCode}</td>
                         <td class="field-image1-value">
-                            <img src="data:image/png;base64,${field.field_image1}" alt="Field Image 1" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="data:image/png;base64,${field.fieldImage1}" alt="Field Image 1" style="width: 100px; height: 60px; object-fit: cover;">
                         </td>
                         <td class="field-name-value">${field.fieldName}</td>
                         <td class="field-location-value">${locationString}</td>
@@ -33,7 +33,7 @@ function loadFields() {
                     </tr>`;
                 $("#fields-table").append(record);
             });
-            /*$("#fields-table").on("click", ".update-button", function () {
+            $("#fields-table").on("click", ".update-button", function () {
                 const row = $(this).closest("tr");
 
                 const field_name = row.find(".field-name-value").text();
@@ -49,11 +49,21 @@ function loadFields() {
                 $("#field_location_x").val(x);
                 $("#field_location_y").val(y);
                 $("#field_size").val(extent_size);
-            });*/
+            });
         },
         error: function (xhr, status, error) {
             console.error("Failed to load fields:", error);
             alert("An error occurred while loading the field data.");
         },
     });
+}
+
+function clearFields() {
+    console.log("clicked");
+    $("#field_name").val("");
+    $("#field_location_x").val("");
+    $("#field_location_y").val("");
+    $("#field_size").val("");
+    $("#field_image1").val(null);
+    $("#field_image2").val(null);
 }

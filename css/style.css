@@ -149,8 +149,7 @@ body{
     border: 2px solid #7fc92b;
 }
 .btn{
-    width: 80px;
-    height: 35px;
+
     font-weight: bold;
     background-color: #0ea10e;
     color: white;
@@ -164,6 +163,7 @@ body{
     border: 2px solid #0ea10e;
 
 }
+
 
 @media screen and (max-width:800px){
     .content h3{
