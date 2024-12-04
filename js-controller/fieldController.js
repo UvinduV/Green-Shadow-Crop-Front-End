@@ -59,6 +59,39 @@ function loadFields() {
         },
     });
 }
+function saveField() {
+    var fieldName = $("#field_name").val();
+    var location_x = $("#field_location_x").val();
+    var location_y = $("#field_location_y").val();
+    var extentSize = $("#field_size").val();
+
+    const url = `http://localhost:5050/greenShadowCrop/api/v1/fields`;
+    $.ajax({
+        url: url,
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            fieldName: fieldName,
+            x: location_x,
+            y: location_y,
+            extentSize: extentSize,
+            crops: [],
+            staff: []
+        }),
+        success: function (response) {
+            clearFields();
+            console.log(response);
+            alert("Field Save Successfully");
+            loadFields();
+        },
+        error: function (response) {
+            clearFields();
+            console.log(response);
+            alert("Field saving failed!");
+            loadFields();
+        },
+    });
+}
 function updateFields() {
     var fieldName = $("#field_name").val();
     var location_x = $("#field_location_x").val();
