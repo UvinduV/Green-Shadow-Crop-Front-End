@@ -83,12 +83,11 @@
 </section>
 
 <!-- login Form -->
-<div class="container-fluid vh-100 d-flex align-items-center justify-content-center" id="main-container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <!-- Login Form -->
-            <div id="login-section" class="card shadow">
-                <div class="card-body">
+<section id="login-section">
+    <div class="container vh-100 d-flex align-items-center justify-content-center">
+        <div class="row fa-align-justify">
+            <div class="col-md-12">
+                <div class="card shadow">
                     <h3 class="text-center text-success">Welcome Back to Green Shadow</h3>
                     <p class="text-center">Login to manage your farm records</p>
                     <form>
@@ -103,50 +102,56 @@
                         <button type="submit" class="btn btn-success w-100" id="btn-login">Login</button>
                     </form>
                     <p class="text-center mt-3">
-                        Don't have an account? <a id="show-signup" class="text-success">Signup here</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Signup Form -->
-            <div id="signup-section" class="card shadow">
-                <div class="card-body">
-                    <h3 class="text-center text-success">Join Green Shadow</h3>
-                    <form>
-                        <div class="mb-8">
-                            <label for="signupEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="signupEmail" required placeholder="Enter email">
-                        </div>
-                        <div class="mb-8">
-                            <label for="signupPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="signupPassword" required placeholder="Password">
-                        </div>
-                        <div class="mb-8">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
-                        </div>
-                        <div class="mb-8">
-                            <label class="form-label">Role</label>
-                            <select class="form-control mb-4 shadow-none" required>
-                                <option value="ROLE">Select a Role</option>
-                                <option value="MANAGER">MANAGER</option>
-                                <option value="ADMINISTRATIVE">ADMINISTRATIVE</option>
-                                <option value="SCIENTIST">SCIENTIST</option>
-                            </select>
-                        </div>
-
-
-                        <button type="submit" class="btn btn-success w-100" id="btn-signup">Signup</button>
-                    </form>
-                    <p class="text-center mt-3">
-                        Already have an account? <a id="show-login" class="text-success">Login here</a>
+                        Don't have an account? <a id="show-signup" class="text-success" onclick="toggleForms()">Sign up here</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--Dashboard Section-->
+</section>
+
+<!--signup section -->
+<section id="signup-section">
+    <div class="container vh-100 d-flex align-items-center justify-content-center" style="display: none;" id="signupForm">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow p-4">
+                    <h3 class="text-center text-success">Join Green Shadow</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email</label>
+                            <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select id="role" class="form-control">
+                                <option value="">Select Role</option>
+                                <option value="manager">Manager</option>
+                                <option value="scientist">Scientist</option>
+                                <option value="worker">Worker</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+                    </form>
+                    <p class="text-center mt-3">
+                        Already have an account? <a id="show-login" class="text-success" onclick="toggleForms()">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
 <section id="dashboard-section">
     <h1 class="text-start section-header"><i class="fab fa-delicious f-left"></i>Dashboard</h1>
     <div class="container">
@@ -155,7 +160,7 @@
                 <div class="card bg-c-blue order-card">
                     <div class="card-block">
                         <h6 class="m-b-20">Number Of Fields</h6>
-                        <h2 class="text-right"><i class="fab fa-delicious f-left"></i><span>80</span></h2>
+                        <h2 class="text-right"><i class="fab fa-delicious f-left"></i><span>186</span></h2>
 
                     </div>
                 </div>
@@ -165,8 +170,7 @@
                 <div class="card bg-c-green order-card">
                     <div class="card-block">
                         <h6 class="m-b-20">Number Of Staff</h6>
-                        <h2 class="text-right"><i class="fa-solid fa-people-group f-left"></i><span>320</span></h2>
-
+                        <h2 class="text-right"><i class="fa-solid fa-people-group f-left"></i><span>350</span></h2>
                     </div>
                 </div>
             </div>
@@ -175,8 +179,7 @@
                 <div class="card bg-c-yellow order-card">
                     <div class="card-block">
                         <h6 class="m-b-20">Number Of Vehicles</h6>
-                        <h2 class="text-right"><i class="fa-solid fa-truck f-left"></i><span>96</span></h2>
-
+                        <h2 class="text-right"><i class="fa-solid fa-truck f-left"></i><span>87</span></h2>
                     </div>
                 </div>
             </div>
@@ -185,7 +188,7 @@
                 <div class="card bg-c-pink order-card">
                     <div class="card-block">
                         <h6 class="m-b-20">Number Of Equipments</h6>
-                        <h2 class="text-right"><i class="fa-solid fa-trowel f-left"></i><span>450</span></h2>
+                        <h2 class="text-right"><i class="fa-solid fa-trowel f-left"></i><span>430</span></h2>
                     </div>
                 </div>
             </div>
@@ -197,7 +200,8 @@
 <section id="field-section">
     <div class="container-fluid light-style flex-grow-1 container-p-y">
         <h1 class="text-start section-header">
-            <!--<i class="fab fa-delicious f-left"></i>-->Field</h1>
+            <i class="fab fa-delicious f-left"></i>Field
+        </h1>
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <!-- Form Section -->
@@ -206,50 +210,38 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label class="form-label">Field Name</label>
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter field name">
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter field name" id="field_name">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Field Location (Coordinate)</label>
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="">
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="">
+                            <input type="number" class="form-control mb-4 shadow-none" placeholder="Enter GPS coordinates" id="field_location_x">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Field Location (Coordinate)</label>
+                            <input type="number" class="form-control mb-4 shadow-none" placeholder="Enter GPS coordinates" id="field_location_y">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Extent Size (sq. m)</label>
-                            <input type="number" class="form-control mb-4 shadow-none" placeholder="Enter extent size in sq. m">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Crops</label>
-                            <select id="crop-type" class="form-control mb-4 shadow-none">
-                                <!--<option value="banana">Banana</option>
-                                <option value="papaya">Papaya</option>
-                                <option value="guava">Guava</option>-->
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Staff</label>
-                            <select id="staff-type" class="form-control mb-4 shadow-none">
-                                <!--<option value="perera">Perera</option>
-                                <option value="silva">Silva</option>
-                                <option value="mendis">Mendis</option>-->
-                            </select>
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter extent size in sq. m" id="field_size">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Field Image 1</label>
-                            <input type="file" class="form-control mb-4 shadow-none" accept="image/*">
+                            <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="field_image1">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Field Image 2</label>
-                            <input type="file" class="form-control mb-4 shadow-none" accept="image/*">
+                            <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="field_image2">
                         </div>
                         <div class="text-right mt-3">
-                            <button type="button" class="btn btn-warning">Save</button>
-                            <button type="button" class="btn btn-info">Cancel</button>
+                            <button type="button" class="btn btn-warning" onclick="saveField()">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="updateFields()">Update</button>
+                            <button type="button" class="btn btn-info" onclick="clearFields()">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-8 col-sm-12">
                 <!-- Table Section -->
                 <div class="container">
                     <div class="table-responsive">
@@ -260,23 +252,18 @@
                                 <th scope="col">Field Name</th>
                                 <th scope="col">Field Location</th>
                                 <th scope="col">Extent Size</th>
-                                <th scope="col">Crops</th>
-                                <th scope="col">Staff</th>
                                 <th scope="col">Actions</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="fields-table">
 
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 </section>
 
 

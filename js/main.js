@@ -1,7 +1,7 @@
 $("#login-section").css({display:'none'});
 $("#signup-section").css({display:'none'});
 $("#home").show();
-$("#navbar-color").css({display:'block'});
+$("#navLink-section").show();
 $("#dashboard-section").css({display: 'none'});
 $('#field-section').css({display: 'none'});
 
@@ -11,7 +11,7 @@ $('#btn-login-home').on('click', () => {
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'none'});
     $("#home").css({display:'none'});
-    $("#navbar-color").css({display:'none'});
+    $("#navLink-section").css({display:'none'});
     $('#field-section').css({display: 'none'});
 
 });
@@ -21,7 +21,7 @@ $('#show-signup').on('click', () => {
     $("#signup-section").css({display:'block'});
     $("#dashboard-section").css({display: 'none'});
     $("#home").css({display:'none'});
-    $("#navbar-color").css({display:'none'});
+    $("#navLink-section").css({display:'none'});
     $('#field-section').css({display: 'none'});
 
 });
@@ -31,7 +31,7 @@ $('#show-login').on('click', () => {
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'none'});
     $("#home").css({display:'none'});
-    $("#navbar-color").css({display:'none'});
+    $("#navLink-section").css({display:'none'});
     $('#field-section').css({display: 'none'});
 
 });
@@ -41,7 +41,7 @@ $('#btn-login').on('click', () => {
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'block'});
     $("#home").css({display:'none'});
-    $("#navbar-color").css({display:'block'});
+    $("#navLink-section").show();
     $('#field-section').css({display: 'none'});
 
 });
@@ -52,7 +52,7 @@ $('#nav-dashboard').on('click', () => {
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'block'});
     $("#home").css({display:'none'});
-    $("#navbar-color").css({display:'block'});
+    $("#navLink-section").show();
 
 });
 
@@ -62,7 +62,7 @@ $('#nav-field').on('click', () => {
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'none'});
     $("#home").css({display:'none'});
-    $("#navbar-color").css({display:'block'});
+    $("#navLink-section").show();
 });
 
 

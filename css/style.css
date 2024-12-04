@@ -12,6 +12,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: hidden;
 }
 
 /* navbar */
@@ -22,6 +23,7 @@ body{
     border-radius: 0 40px 0 40px;
     border-left: 10px solid #FF9933;
     border-bottom: 0px solid #FF9933;
+    padding: 0;
 }
 #logo {
     font-size: 30px;
