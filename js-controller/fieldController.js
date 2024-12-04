@@ -157,6 +157,29 @@ function uploadImage() {
         },
     });
 }
+$("#fields-table").on("click", ".delete-button", function () {
+    const row = $(this).closest("tr");
+
+    const fieldCode = row.find(".field-code-value").text();
+
+    const url = `http://localhost:5050/greenShadowCrop/api/v1/fields/${fieldCode}`;
+    $.ajax({
+        url: url,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function (results) {
+            console.log(results);
+            alert("Field Deleted successfully");
+            /*fetchFieldNames("field_details");*/
+            loadFields();
+        },
+        error: function (error) {
+            console.log("Status:", status);
+            console.log("Error:", error);
+            alert("Field Delete unsuccessfuly");
+        },
+    });
+});
 
 function clearFields() {
     console.log("clear field in fields");
