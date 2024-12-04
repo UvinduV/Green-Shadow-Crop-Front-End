@@ -16,6 +16,7 @@
     width: 100%;
     height: 94vh;
     overflow-x: hidden;
+
 }
 
 #crop-section {
@@ -39,7 +40,6 @@
     overflow-x: hidden;
 }
 
-
 #vehicle-section {
     background: var(--background-color);
     width: 100%;
@@ -53,6 +53,26 @@
     height: 94vh;
     overflow-x: hidden;
 }
+
+/*---- tbody button-----*/
+#field-section tbody button{
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    background: transparent;
+    color: #750808;
+    border: none;
+}
+#field-section tbody .delete-button:hover{
+    background: red;
+    color: #ffffff;
+}
+#field-section tbody .update-button:hover{
+    background: #14dfb0;
+    color: #ffffff;
+}
+
+
 
 .section-header {
     margin-top: 30px;
