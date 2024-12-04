@@ -95,6 +95,14 @@
     border: 2px solid #425904;
 }
 
+/*---unchangeble text fields*/
+#field_code{
+    background: #0ea10e;
+    color: #a7f352;
+    border-radius: 40px;
+}
+
+
 
 
 .section-header {

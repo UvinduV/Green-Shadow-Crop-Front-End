@@ -91,7 +91,8 @@ function uploadImage() {
 }
 
 function clearFields() {
-    console.log("clicked");
+    console.log("clear field in fields");
+    $("#field_code").val("");
     $("#field_name").val("");
     $("#field_location_x").val("");
     $("#field_location_y").val("");
