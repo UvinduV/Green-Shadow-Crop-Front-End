@@ -8,6 +8,7 @@ $('#field-section').css({display: 'none'});
 $('#crop-section').css({display: 'none'});
 $('#staff-section').css({display: 'none'});
 $('#vehicle-section').css({display: 'none'});
+$('#equipment-section').css({display: 'none'});
 
 
 $('#btn-login-home').on('click', () => {
