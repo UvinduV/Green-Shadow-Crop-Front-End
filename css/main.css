@@ -76,10 +76,23 @@
 /*----section btn--------*/
 .btn-info{
     background-color: #f62307;
+    border: none;
 
 }
 .btn-primary{
     background-color: #c58e04;
+    border: none;
+}
+#uploardImg{
+    background: #0a3c02;
+    color: #ebf307;
+    width: 100px;
+    border: none;
+}
+#uploardImg:hover{
+    color: #425904;
+    background: white;
+    border: 2px solid #425904;
 }
 
 

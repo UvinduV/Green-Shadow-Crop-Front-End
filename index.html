@@ -208,7 +208,12 @@
                 <div class="form-card overflow-hidden">
 
                     <div class="card-body">
+                         <span>
+                                <label class="form-label">Field Code: </label>
+                                <input type="text" class="form-control mb-4 shadow-none" readonly placeholder="Enter field name" id="field_code">
+                         </span>
                         <div class="form-group">
+
                             <label class="form-label">Field Name</label>
                             <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter field name" id="field_name">
                         </div>
@@ -224,6 +229,11 @@
                             <label class="form-label">Extent Size (sq. m)</label>
                             <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter extent size in sq. m" id="field_size">
                         </div>
+                        <div class="text-right mt-3">
+                            <button type="button" class="btn btn-warning" onclick="saveField()">Add field</button>
+                            <button type="button" class="btn btn-primary" onclick="updateFields()">Update</button>
+                            <button type="button" class="btn btn-info" onclick="clearFields()"><i class="fa-solid fa-xmark"></i>clear</button>
+                        </div>
                         <div class="form-group">
                             <label class="form-label">Field Image 1</label>
                             <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="field_image1">
@@ -233,9 +243,7 @@
                             <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="field_image2">
                         </div>
                         <div class="text-right mt-3">
-                            <button type="button" class="btn btn-warning" onclick="saveField()">Add field</button>
-                            <button type="button" class="btn btn-primary" onclick="updateFields()">Update</button>
-                            <button type="button" class="btn btn-info" onclick="clearFields()">Clear</button>
+                            <button type="button" id="uploardImg" class="btn btn-warning" onclick="uploadImage()"><i class="fa-solid fa-cloud-arrow-up"></i></button>
                         </div>
                     </div>
                 </div>

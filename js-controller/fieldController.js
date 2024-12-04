@@ -36,6 +36,7 @@ function loadFields() {
             $("#fields-table").on("click", ".update-button", function () {
                 const row = $(this).closest("tr");
 
+                const field_code = row.find(".field-code-value").text();
                 const field_name = row.find(".field-name-value").text();
                 const field_location = row.find(".field-location-value").text();
                 const extent_size = row.find(".extent-size-value").text();
@@ -45,6 +46,7 @@ function loadFields() {
                     .split(",")
                     .map((coord) => coord.trim());
 
+                $("#field_code").val(field_code);
                 $("#field_name").val(field_name);
                 $("#field_location_x").val(x);
                 $("#field_location_y").val(y);
@@ -53,7 +55,37 @@ function loadFields() {
         },
         error: function (xhr, status, error) {
             console.error("Failed to load fields:", error);
-            alert("An error occurred while loading the field data.");
+            alert("An error loading the field data.");
+        },
+    });
+}
+function uploadImage() {
+    const formData = new FormData();
+
+    formData.append("fieldCode", $("#field_code").val());
+
+    formData.append("fieldImage1", $("#field_image1")[0].files[0]);
+    formData.append("fieldImage2", $("#field_image2")[0].files[0]);
+
+    const fieldCode = $("#field_code").val();
+    const url = `http://localhost:5050/greenShadowCrop/api/v1/fields/${fieldCode}`;
+    $.ajax({
+        url: url,
+        method: "POST",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (result) {
+            clearFields();
+            console.log(result);
+            alert("Field image upload Successfull");
+            loadFields();
+        },
+        error: function (result) {
+            clearFields();
+            console.log(result);
+            alert("Field image upload Unsuccessfull");
+            loadFields();
         },
     });
 }
