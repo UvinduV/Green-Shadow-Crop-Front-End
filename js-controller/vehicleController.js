@@ -56,6 +56,36 @@ function loadVehicle() {
         },
     });
 }
+$("#vehicle-table").on("click", ".delete-button", function () {
+    const row = $(this).closest("tr");
+
+    const licenseNumber = row.find(".vehicle-license-value").text();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/vehicle/${licenseNumber}`,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function (results) {
+            console.log(results);
+            Swal.fire({
+                title: "Vehicle Delete",
+                text: "Vehicle Successfully Deleted",
+                icon: "success"
+            });
+            loadVehicle();
+        },
+        error: function (error) {
+            console.log("Status:", status);
+            console.log("Error:", error);
+            Swal.fire({
+                title: "Vehicle Delete",
+                text: "Vehicle Delete Unsuccessfull",
+                icon: "error"
+            });
+            loadVehicle();
+        },
+    });
+});
 
 function saveVehicle() {
     var license_number = $("#license_plate").val();
