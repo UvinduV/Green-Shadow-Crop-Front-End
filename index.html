@@ -292,11 +292,11 @@
                         </span>
                         <div class="form-group">
                             <label class="form-label">Common Name</label>
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter common name of the crop" id="crop_common_name">
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter common name " id="crop_common_name">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Scientific Name</label>
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter scientific name of the crop" id="crop_scientific_name">
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter scientific name " id="crop_scientific_name">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Crop Image</label>
@@ -304,7 +304,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Category</label>
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter crop category (e.g., Cereal)" id="crop_category">
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter crop category (e.g: Cereal)" id="crop_category">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Season</label>
@@ -318,7 +318,7 @@
                         <div class="text-right mt-3">
                             <button type="button" class="btn btn-warning" onclick="saveCrop()">Save</button>
                             <button type="button" class="btn btn-primary" onclick="updateCrop()">Update</button>
-                            <button type="button" class="btn btn-info" onclick="clearFields()">Cancel</button>
+                            <button type="button" class="btn btn-info" onclick="clearCropFields()"><i class="fa-solid fa-xmark"></i>Clear</button>
                         </div>
                     </div>
                 </div>
@@ -709,12 +709,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- main js -->
 <script src="/js/main.js"></script>
 <!--controllers-->
 <script src="/js-controller/fieldController.js"></script>
 <script src="/js-controller/ControllersLoad.js"></script>
-<script src="/js-controller/cropControler.js"></script>
+<script src="/js-controller/cropController.js"></script>
 
 <script>
     AOS.init();

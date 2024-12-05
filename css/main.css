@@ -71,6 +71,23 @@
     background: #14dfb0;
     color: #ffffff;
 }
+/*------*/
+#crop-section tbody button{
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    background: transparent;
+    color: #750808;
+    border: none;
+}
+#crop-section tbody .delete-button:hover{
+    background: red;
+    color: #ffffff;
+}
+#crop-section tbody .update-button:hover{
+    background: #14dfb0;
+    color: #ffffff;
+}
 
 
 /*----section btn--------*/
@@ -99,6 +116,11 @@
 #field_code{
     background: #0ea10e;
     color: #a7f352;
+    border-radius: 40px;
+}
+#crop_code{
+    background: #a7f352;
+    color: #425904;
     border-radius: 40px;
 }
 

@@ -59,3 +59,65 @@ function loadCrops() {
         },
     });
 }
+
+
+function saveCrop() {
+
+    const fieldName= $("#field_details").val();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
+        type: "GET",
+        success: function (fieldCode) {
+            console.log("load field code:", fieldCode);
+            const formData = new FormData();
+
+            formData.append("commonName", $("#crop_common_name").val());
+            formData.append("scientificName", $("#crop_scientific_name").val());
+            formData.append("cropImage", $("#crop_image")[0].files[0]);
+            formData.append("category", $("#crop_category").val());
+            formData.append("season", $("#crop_season").val());
+            formData.append("field",fieldCode);
+
+            $.ajax({
+                url: "http://localhost:5050/greenShadowCrop/api/v1/crops",
+                method: "POST",
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (result) {
+                    clearFields();
+                    console.log(result);
+                    Swal.fire({
+                        title: "Crop Save",
+                        text: "Crop Successfully Saved",
+                        icon: "success"
+                    });
+                    loadCrops();
+                },
+                error: function (result) {
+                    clearFields();
+                    console.log(result);
+                    Swal.fire({
+                        title: "Crop Save",
+                        text: "Crop Save Unsuccessfull",
+                        icon: "error"
+                    });
+                    loadCrops();
+                },
+            });
+        },
+        error: function (error) {
+            alert("Error loading crop code: " + error.responseText);
+            console.error(error);
+        },
+    });
+}
+function clearCropFields() {
+    $("#crop_code").val("");
+    $("#crop_common_name").val("");
+    $("#crop_scientific_name").val("");
+    $("#crop_image").val("");
+    $("#crop_category").val("");
+    $("#crop_season").val("");
+}
