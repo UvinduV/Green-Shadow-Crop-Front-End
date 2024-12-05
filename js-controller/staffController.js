@@ -1,7 +1,6 @@
 $(document).ready(function () {
     loadStaff();
 });
-var recordIndex;
 
 function loadStaff() {
     $.ajax({

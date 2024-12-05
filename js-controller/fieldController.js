@@ -81,13 +81,21 @@ function saveField() {
         success: function (response) {
             clearFields();
             console.log(response);
-            alert("Field Save Successfully");
+            Swal.fire({
+                title: "Field Save",
+                text: "field save successfully",
+                icon: "success"
+            });
             loadFields();
         },
         error: function (response) {
             clearFields();
             console.log(response);
-            alert("Field saving failed!");
+            Swal.fire({
+                title: "Field Save",
+                text: "field save Unsuccessfully",
+                icon: "error"
+            });
             loadFields();
         },
     });
@@ -116,13 +124,22 @@ function updateFields() {
         success: function (response) {
             clearFields();
             console.log(response);
-            alert("Field update Successfully");
+            Swal.fire({
+                title: "Field Update",
+                text: "field Update successfully",
+                icon: "success"
+            });
+            fetchFieldNames("field_details");
             loadFields();
         },
         error: function (response) {
             clearFields();
             console.log(response);
-            alert("Field update Unsuccessfully");
+            Swal.fire({
+                title: "Field Update",
+                text: "field Update Unsuccessfully",
+                icon: "error"
+            });
             loadFields();
         },
     });
@@ -146,13 +163,21 @@ function uploadImage() {
         success: function (result) {
             clearFields();
             console.log(result);
-            alert("Field image upload Successfull");
+            Swal.fire({
+                title: "Image Upload",
+                text: "Image Upload successfully",
+                icon: "success"
+            });
             loadFields();
         },
         error: function (result) {
             clearFields();
             console.log(result);
-            alert("Field image upload Unsuccessfull");
+            Swal.fire({
+                title: "Image Upload",
+                text: "Image Upload Unsuccessfully",
+                icon: "error"
+            });
             loadFields();
         },
     });
@@ -169,14 +194,22 @@ $("#fields-table").on("click", ".delete-button", function () {
         contentType: "application/json",
         success: function (results) {
             console.log(results);
-            alert("Field Deleted successfully");
-            /*fetchFieldNames("field_details");*/
+            Swal.fire({
+                title: "Field Delete",
+                text: "field Delete successfully",
+                icon: "success"
+            });
+            fetchFieldNames("field_details");
             loadFields();
         },
         error: function (error) {
             console.log("Status:", status);
             console.log("Error:", error);
-            alert("Field Delete unsuccessfuly");
+            Swal.fire({
+                title: "Field Delete",
+                text: "field Delete Unsuccessfully",
+                icon: "error"
+            });
         },
     });
 });
