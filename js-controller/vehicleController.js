@@ -57,6 +57,63 @@ function loadVehicle() {
     });
 }
 
+function saveVehicle() {
+    var license_number = $("#license_plate").val();
+    var vehicle_category = $("#category").val();
+    var fuel_type = $("#fuel_type").val();
+    var status = $("#status").val();
+    var remarks = $("#remarks").val();
+
+    const assigned_staff = $("#vehicle_staff_details").val();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/staff/getStaffId/${assigned_staff}`,
+        type: "GET",
+        success: function (staffId) {
+            console.log("load Staff Id:", staffId);
+            $.ajax({
+                url: "http://localhost:5050/greenShadowCrop/api/v1/vehicle",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    licensePlateNumber: license_number,
+                    vehicleCategory: vehicle_category,
+                    fuelType: fuel_type,
+                    status: status,
+                    remarks: remarks,
+                    assignedStaff: {
+                        staffId: staffId
+                    }
+                }),
+                success: function (result) {
+                    clearVehicleForm();
+                    loadVehicle();
+                    console.log(result);
+                    Swal.fire({
+                        title: "Vehicle Save",
+                        text: "Vehicle Successfully Saved",
+                        icon: "success"
+                    });
+                },
+                error: function (result) {
+                    clearVehicleForm();
+                    Swal.fire({
+                        title: "Vehicle Save",
+                        text: "Vehicle Save Unsuccessfull",
+                        icon: "error"
+                    });
+                    console.log(result);
+                },
+            });
+
+        },
+        error: function (error) {
+            alert("Error loading staff id: " + error.responseText);
+            console.error(error);
+        },
+    });
+}
+
 
 function clearVehicleForm() {
     $("#license_plate").val("");

@@ -197,7 +197,7 @@ function saveStaff() {
 
         },
         error: function (error) {
-            alert("Error loading crop code: " + error.responseText);
+            alert("Error loading field code: " + error.responseText);
             console.error(error);
         },
     });
