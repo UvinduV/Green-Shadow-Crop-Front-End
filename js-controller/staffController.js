@@ -164,7 +164,6 @@ function saveStaff() {
                 },
             });
 
-
         },
         error: function (error) {
             alert("Error loading crop code: " + error.responseText);
@@ -172,6 +171,87 @@ function saveStaff() {
         },
     });
 }
+
+function updateStaff() {
+    var staffId = $("#staff_id").val();
+    var first_name = $("#first_name").val();
+    var last_name = $("#last_name").val();
+    var designation = $("#designation").val();
+    var gender = $("#gender").val();
+    var joined_date = $("#joined_date").val();
+    var dob = $("#dob").val();
+    var address1 = $("#addressLine1").val();
+    var address2 = $("#addressLine2").val();
+    var address3 = $("#addressLine3").val();
+    var address4 = $("#addressLine4").val();
+    var address5 = $("#addressLine5").val();
+    var contact = $("#contact").val();
+    var email = $("#email").val();
+    var role = $("#role").val();
+
+    const fieldName = $("#staff_field_details").val();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
+        type: "GET",
+        success: function (fieldCode) {
+            console.log("load field code:", fieldCode);
+
+            const updatedStaffData = {
+                firstName: first_name,
+                lastName: last_name,
+                designation: designation,
+                gender: gender,
+                joinedDate: joined_date,
+                dob: dob,
+                addressLine1: address1,
+                addressLine2: address2,
+                addressLine3: address3,
+                addressLine4: address4,
+                addressLine5: address5,
+                contactNo: contact,
+                email: email,
+                role: role,
+                fields: [
+                    {
+                        fieldCode: fieldCode
+                    }
+                ],
+                vehicles: []
+            };
+
+            $.ajax({
+                url: `http://localhost:5050/greenShadowCrop/api/v1/staff/${staffId}`,
+                type: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(updatedStaffData),
+                success: function () {
+                    clearStaffFields();
+                    Swal.fire({
+                        title: "Staff Member Update",
+                        text: "Staff Member Successfully Updated",
+                        icon: "success"
+                    });
+                    loadStaff();
+                },
+                error: function (error) {
+                    clearStaffFields();
+                    Swal.fire({
+                        title: "Staff Member Update",
+                        text: "Staff Member Update Unsuccessfull",
+                        icon: "error"
+                    });
+                    console.error(error.responseText);
+                },
+            });
+        },
+        error: function (error) {
+            alert("Error loading field code: " + error.responseText);
+            console.error(error);
+        },
+    });
+}
+
 
 function clearStaffFields() {
     $("#staff_id").val("");
