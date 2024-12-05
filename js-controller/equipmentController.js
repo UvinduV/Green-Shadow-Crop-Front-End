@@ -124,6 +124,76 @@ function saveEquipment() {
         },
     });
 }
+function updateEquipment() {
+    var equipment_name = $("#equipment_name").val();
+    var equipment_type = $("#equipment_type").val();
+    var equipment_status = $("#equipment_status").val();
+    var assigned_staff = $("#equip_staff_details").val();
+    var assigned_field = $("#equip_field_details").val();
+    const equip_id = $("#equip_id").val();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/staff/getStaffId/${assigned_staff}`,
+        type: "GET",
+        success: function (staffId) {
+            console.log("load Staff Id:", staffId);
+            $.ajax({
+                url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${assigned_field}`,
+                type: "GET",
+                success: function (fieldCode) {
+                    console.log("load field code:", fieldCode);
+
+                    const updatedEquipData = {
+                        name: equipment_name,
+                        type: equipment_type,
+                        status: equipment_status,
+                        assignedStaff: {
+                            staffId: staffId
+                        },
+                        assignedField: {
+                            fieldCode: fieldCode
+                        },
+                    };
+
+                    $.ajax({
+                        url: `http://localhost:5050/greenShadowCrop/api/v1/equipment/${equip_id}`,
+                        type: "PATCH",
+                        contentType: "application/json",
+                        data: JSON.stringify(updatedEquipData),
+                        success: function () {
+                            clearEquipForm();
+                            Swal.fire({
+                                title: "Equipment Update",
+                                text: "Equipment Successfully Updated",
+                                icon: "success"
+                            });
+                            loadEquipment();
+                        },
+                        error: function (error) {
+                            clearEquipForm();
+                            Swal.fire({
+                                title: "Equipment Update",
+                                text: "Equipment Update Unsuccessfull",
+                                icon: "error"
+                            });
+                            console.error(error.responseText);
+                        },
+                    });
+                },
+
+                error: function (error) {
+                    alert("Error loading field code: " + error.responseText);
+                    console.error(error);
+                },
+            });
+
+        },
+        error: function (error) {
+            alert("Error loading staff id: " + error.responseText);
+            console.error(error);
+        },
+    });
+}
 
 function clearEquipForm() {
     $("#equip_id").val("");
