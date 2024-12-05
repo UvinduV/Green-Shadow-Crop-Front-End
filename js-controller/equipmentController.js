@@ -57,6 +57,38 @@ function loadEquipment() {
         },
     });
 }
+
+$("#equipment-table").on("click", ".delete-button", function () {
+    const row = $(this).closest("tr");
+
+    const equipId = row.find(".equip-id-value").text();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/equipment/${equipId}`,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function (results) {
+            console.log(results);
+            Swal.fire({
+                title: "Equipment Delete",
+                text: "Equipment Successfully Deleted",
+                icon: "success"
+            });
+            loadEquipment();
+        },
+        error: function (error) {
+            console.log("Status:", status);
+            console.log("Error:", error);
+            Swal.fire({
+                title: "Equipment Delete",
+                text: "Equipment Delete Unsuccessfull",
+                icon: "error"
+            });
+            loadEquipment();
+        },
+    });
+});
+
 function saveEquipment() {
     var equipment_name = $("#equipment_name").val();
     var equipment_type = $("#equipment_type").val();
