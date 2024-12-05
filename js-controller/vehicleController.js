@@ -113,6 +113,64 @@ function saveVehicle() {
         },
     });
 }
+function updateVehicle() {
+    var vehicle_category = $("#category").val();
+    var fuel_type = $("#fuel_type").val();
+    var status = $("#status").val();
+    var remarks = $("#remarks").val();
+
+    const license_number = $("#license_plate").val();
+
+    const assigned_staff = $("#vehicle_staff_details").val();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/staff/getStaffId/${assigned_staff}`,
+        type: "GET",
+        success: function (staffId) {
+            console.log("load Staff Id:", staffId);
+            const updatedVehicleData = {
+                vehicleCategory: vehicle_category,
+                fuelType: fuel_type,
+                status: status,
+                remarks: remarks,
+                assignedStaff:{
+                    staffId: staffId
+                }
+            };
+
+            $.ajax({
+                url: `http://localhost:5050/greenShadowCrop/api/v1/vehicle//${license_number}`,
+                type: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(updatedVehicleData),
+                success: function () {
+                    clearVehicleForm();
+                    Swal.fire({
+                        title: "Vehicle Update",
+                        text: "Vehicle Successfully Updated",
+                        icon: "success"
+                    });
+                    loadVehicle();
+                },
+                error: function (error) {
+                    clearVehicleForm();
+                    loadVehicle();
+                    Swal.fire({
+                        title: "Vehicle Update",
+                        text: "Vehicle Update Unsuccessfull",
+                        icon: "error"
+                    });
+                    console.error(error.responseText);
+                },
+            });
+
+        },
+        error: function (error) {
+            alert("Error loading staff id: " + error.responseText);
+            console.error(error);
+        },
+    });
+}
 
 
 function clearVehicleForm() {
