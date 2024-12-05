@@ -139,7 +139,7 @@ function updateVehicle() {
             };
 
             $.ajax({
-                url: `http://localhost:5050/greenShadowCrop/api/v1/vehicle//${license_number}`,
+                url: `http://localhost:5050/greenShadowCrop/api/v1/vehicle/${license_number}`,
                 type: "PUT",
                 contentType: "application/json",
                 data: JSON.stringify(updatedVehicleData),
