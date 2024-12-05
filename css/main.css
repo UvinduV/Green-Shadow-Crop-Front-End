@@ -134,6 +134,12 @@
 #license_plate{
     border: 2px solid #38e8c8;
 }
+#equip_id{
+    background: #fa6e09;
+    color: #324323;
+    border-radius: 40px;
+    font-size: small;
+}
 
 
 
