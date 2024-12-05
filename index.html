@@ -361,12 +361,16 @@
             <div class="col-md-4 col-sm-12">
                 <!-- Form Section -->
                 <div class="form-card overflow-hidden">
-                    <div class="card-body">
-                        <div class="form-group">
+                    <div class="card-body row g-3">
+                        <span>
+                            <label class="form-label">Staff Id : </label>
+                            <input type="text" class="form-control mb-4 shadow-none" readonly placeholder="Staff Id " id="staff_id">
+                        </span>
+                        <div class="form-group col-md-6">
                             <label class="form-label">First Name</label>
                             <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter first name" id="first_name">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label class="form-label">Last Name</label>
                             <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter last name" id="last_name">
                         </div>
@@ -374,10 +378,15 @@
                             <label class="form-label">Designation</label>
                             <select class="form-control mb-4 shadow-none" id="designation">
                                 <option value="" selected>Select a Desgination</option>
-                                <option value="ADMINISTRATIVE">Administrative</option>
-                                <option value="FIELD_WORKER">Field Worker</option>
+                                <option value="Admin and HR Staff">Admin and HR Staff</option>
+                                <option value="Admin-IT">Admin-IT</option>
+                                <option value="Technician">Technician</option>
+                                <option value="Supervisors">Supervisors</option>
+                                <option value="Labors">Labors</option>
                                 <option value="MANAGER">Manager</option>
+                                <option value="Senior Assistant Manager">Senior Assistant Manager</option>
                                 <option value="SCIENTIST">Scientist</option>
+                                <option value="Agronomist">Agronomist</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -396,10 +405,29 @@
                             <label class="form-label">Date of Birth</label>
                             <input type="date" class="form-control mb-4 shadow-none" id="dob">
                         </div>
-                        <div class="form-group ">
+                        <!------------------------->
+                        <div class="form-group col-md-6">
                             <label class="form-label">Address</label>
-                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Building no or name" id="address">
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Building No or name" id="addressLine1">
                         </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label"> : </label>
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Lane" id="addressLine2">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <!--<label class="form-label">City</label>-->
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="City" id="addressLine3">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <!--<label class="form-label">Main State</label>-->
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Main state" id="addressLine4">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <!--<label class="form-label">Postal Code</label>-->
+                            <input type="text" class="form-control mb-4 shadow-none" placeholder="Postal code" id="addressLine5">
+                        </div>
+                        <!----------------------->
+
                         <div class="form-group">
                             <label class="form-label">Contact No.</label>
                             <input type="text" class="form-control mb-4 shadow-none" placeholder="Mobile number" id="contact">
@@ -413,7 +441,7 @@
                             <select class="form-control mb-4 shadow-none" id="role">
                                 <option value="" selected>Select a Role</option>
                                 <option value="ADMINISTRATIVE">Administrative</option>
-                                <option value="FIELD_WORKER">Field Worker</option>
+                                <option value="OTHER">Other</option>
                                 <option value="MANAGER">Manager</option>
                                 <option value="SCIENTIST">Scientist</option>
                             </select>
@@ -426,7 +454,7 @@
                         <div class="text-right mt-3">
                             <button type="button" class="btn btn-warning" onclick="saveStaff()">Save</button>
                             <button type="button" class="btn btn-primary" onclick="updateStaff()">Update</button>
-                            <button type="button" class="btn btn-info">Cancel</button>
+                            <button type="button" class="btn btn-info">Clear</button>
                         </div>
                     </div>
                 </div>
@@ -439,6 +467,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th scope="col">Staff Id</th>
                                 <th scope="col">Full Name</th>
                                 <th scope="col">Designation</th>
                                 <th scope="col">Gender</th>
@@ -717,6 +746,7 @@
 <script src="/js-controller/fieldController.js"></script>
 <script src="/js-controller/ControllersLoad.js"></script>
 <script src="/js-controller/cropController.js"></script>
+<script src="/js-controller/staffController.js"></script>
 
 <script>
     AOS.init();
