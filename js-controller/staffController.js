@@ -90,3 +90,105 @@ function loadStaff() {
         },
     });
 }
+
+function saveStaff() {
+
+    var first_name = $("#first_name").val();
+    var last_name = $("#last_name").val();
+    var designation = $("#designation").val();
+    var gender = $("#gender").val();
+    var joined_date = $("#joined_date").val();
+    var dob = $("#dob").val();
+    var address1 = $("#addressLine1").val();
+    var address2 = $("#addressLine2").val();
+    var address3 = $("#addressLine3").val();
+    var address4 = $("#addressLine4").val();
+    var address5 = $("#addressLine5").val();
+    var contact = $("#contact").val();
+    var email = $("#email").val();
+    var role = $("#role").val();
+
+    const fieldName = $("#staff_field_details").val();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
+        type: "GET",
+        success: function (fieldCode) {
+            console.log("load field code:", fieldCode);
+            $.ajax({
+                url: "http://localhost:5050/greenShadowCrop/api/v1/staff",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    firstName: first_name,
+                    lastName: last_name,
+                    designation: designation,
+                    gender: gender,
+                    joinedDate: joined_date,
+                    dob: dob,
+                    addressLine1: address1,
+                    addressLine2: address2,
+                    addressLine3: address3,
+                    addressLine4: address4,
+                    addressLine5: address5,
+                    contactNo: contact,
+                    email: email,
+                    role: role,
+                    fields: [
+                        {
+                            fieldCode: fieldCode
+                        }
+                    ],
+                    vehicles: []
+                }),
+                success: function (result) {
+                    clearStaffFields();
+                    fetchStaffNames("vehicle_staff_details")
+                    console.log(result);
+                    Swal.fire({
+                        title: "Staff Member Save",
+                        text: "Staff Member Successfully Saved",
+                        icon: "success"
+                    });
+                    loadStaff();
+                },
+                error: function (result) {
+                    clearStaffFields();
+                    Swal.fire({
+                        title: "Staff Member Save",
+                        text: "Staff Member Save Unsuccessfull",
+                        icon: "error"
+                    });
+                    console.log(result);
+                    loadStaff();
+                },
+            });
+
+
+        },
+        error: function (error) {
+            alert("Error loading crop code: " + error.responseText);
+            console.error(error);
+        },
+    });
+}
+
+function clearStaffFields() {
+    $("#staff_id").val("");
+    $("#first_name").val("");
+    $("#last_name").val("");
+    $("#designation").val("");
+    $("#gender").val("");
+    $("#joined_date").val("");
+    $("#dob").val("");
+    $("#addressLine1").val("");
+    $("#addressLine2").val("");
+    $("#addressLine3").val("");
+    $("#addressLine4").val("");
+    $("#addressLine5").val("");
+    $("#contact").val("");
+    $("#email").val("");
+    $("#role").val("");
+    $("#staff_field_details").val("");
+    $("#vehicle_name").val("");
+}

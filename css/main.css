@@ -117,11 +117,19 @@
     background: #0ea10e;
     color: #a7f352;
     border-radius: 40px;
+    font-size: small;
 }
 #crop_code{
     background: #a7f352;
     color: #425904;
     border-radius: 40px;
+    font-size: small;
+}
+#staff_id{
+    background: #fbdb03;
+    color: #425904;
+    border-radius: 40px;
+    font-size: small;
 }
 
 
