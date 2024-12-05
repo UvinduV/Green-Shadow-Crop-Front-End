@@ -286,6 +286,10 @@
                 <!-- Form Section -->
                 <div class="form-card overflow-hidden">
                     <div class="card-body">
+                        <span>
+                                <label class="form-label">Crop Code: </label>
+                                <input type="text" class="form-control mb-4 shadow-none" readonly placeholder="Crop code " id="crop_code">
+                        </span>
                         <div class="form-group">
                             <label class="form-label">Common Name</label>
                             <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter common name of the crop" id="crop_common_name">
@@ -327,12 +331,13 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th scope="col">Crop Code</th>
                                 <th scope="col">Crop Image</th>
                                 <th scope="col">Common Name</th>
                                 <th scope="col">Scientific Name</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Season</th>
-                                <th scope="col">Allocated Field</th>
+                                <th scope="col">Field</th>
                                 <th scope="col">Actions</th>
                             </tr>
                             </thead>
@@ -709,6 +714,7 @@
 <!--controllers-->
 <script src="/js-controller/fieldController.js"></script>
 <script src="/js-controller/ControllersLoad.js"></script>
+<script src="/js-controller/cropControler.js"></script>
 
 <script>
     AOS.init();
