@@ -91,6 +91,38 @@ function loadStaff() {
     });
 }
 
+$("#staff-table").on("click", ".delete-button", function () {
+    const row = $(this).closest("tr");
+
+    const staffId = row.find(".staff-id-value").text();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/staff/${staffId}`,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function (results) {
+            fetchStaffNames("vehicle_staff_details")
+            console.log(results);
+            Swal.fire({
+                title: "Staff Member Delete",
+                text: "Staff Member Successfully Deleted",
+                icon: "success"
+            });
+            loadStaff();
+        },
+        error: function (error) {
+            console.log("Status:", status);
+            console.log("Error:", error);
+            Swal.fire({
+                title: "Staff Member Delete",
+                text: "Staff Member Delete Unsuccessfull",
+                icon: "error"
+            });
+            loadStaff();
+        },
+    });
+});
+
 function saveStaff() {
 
     var first_name = $("#first_name").val();
