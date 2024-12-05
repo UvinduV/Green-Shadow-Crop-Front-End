@@ -60,6 +60,37 @@ function loadCrops() {
     });
 }
 
+$("#crop-table").on("click", ".delete-button", function () {
+    const row = $(this).closest("tr");
+
+    const cropCode = row.find(".crop-code-value").text();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/crops/${cropCode}`,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function (results) {
+            console.log(results);
+            Swal.fire({
+                title: "Crop Delete",
+                text: "Crop Successfully Deleted",
+                icon: "success"
+            });
+            loadCrops();
+        },
+        error: function (error) {
+            console.log("Status:", status);
+            console.log("Error:", error);
+            Swal.fire({
+                title: "Crop Delete",
+                text: "Crop Delete Unsuccessfull",
+                icon: "error"
+            });
+            loadCrops();
+        },
+    });
+});
+
 
 function saveCrop() {
 
