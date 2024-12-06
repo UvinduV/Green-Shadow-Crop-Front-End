@@ -27,6 +27,14 @@ $(document).ready(function () {
             fetchFieldNames("equip_field_details");
             fetchStaffNames("equip_staff_details");
             fetchCropNames("log_crop_details");
+
+            /*table load */
+            loadCrops();
+            loadEquipment()
+            loadFields()
+            loadLogs()
+            loadStaff()
+            loadVehicle()
         }
     });
 });
