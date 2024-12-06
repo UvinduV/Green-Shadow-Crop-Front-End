@@ -94,16 +94,16 @@
                     <div class="form-group">
                         <label class="form-label">Email</label>
                         <i class="fa-solid fa-envelope" style="color: #14db06;"></i>
-                        <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter Your Email " id="loginEmail">
+                        <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter Your Email " required id="loginEmail">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Password</label>
                         <i class="fa-solid fa-lock" style="color: #16e407;"></i>
-                        <input type="password" class="form-control mb-4 shadow-none" placeholder="Enter Your Password" id="loginPassword">
+                        <input type="password" class="form-control mb-4 shadow-none" placeholder="Enter Your Password" required id="loginPassword">
                     </div>
 
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-warning w-100" id="btn-login" onclick="" >Login</button>
+                        <button type="submit" class="btn btn-warning w-100" id="btn-login" onclick="signIn()" >Login</button>
                     </div>
                     <p class="text-center mt-3">
                         Don't have an account? <a id="show-signup" class="text-success" onclick="toggleForms()">Sign up here</a>
@@ -140,14 +140,15 @@
                         <label for="login-role" class="form-label">Role</label>
                         <select id="login-role" class="form-control">
                             <option value="">Select Role</option>
-                            <option value="manager">Manager</option>
-                            <option value="scientist">Scientist</option>
-                            <option value="worker">Worker</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="SCIENTIST">Scientist</option>
+                            <option value="ADMINISTRATIVE">Admin</option>
+                            <option value="OTHER">Other</option>
                         </select>
                     </div>
 
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-warning w-100" onclick="">Sign Up</button>
+                        <button type="submit" class="btn btn-warning w-100" onclick="signUp()">Sign Up</button>
                     </div>
                     <p class="text-center mt-3">
                         Already have an account? <a id="show-login" class="text-success" href="#login-section">Login here</a>
@@ -160,7 +161,7 @@
 
 </section>
 
-
+<!--dashboard section-->
 <section id="dashboard-section">
     <h1 class="text-start section-header"><i class="fab fa-delicious f-left"></i>Dashboard</h1>
     <div class="container">
@@ -772,6 +773,7 @@
 <script src="/js-controller/vehicleController.js"></script>
 <script src="/js-controller/equipmentController.js"></script>
 <script src="/js-controller/LogController.js"></script>
+<script src="/js-controller/UserController.js"></script>
 
 <script>
     AOS.init();

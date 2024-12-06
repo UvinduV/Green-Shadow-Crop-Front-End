@@ -57,7 +57,7 @@ $('#show-login').on('click', () => {
 
 });
 
-$('#btn-login').on('click', () => {
+/*$('#btn-login').on('click', () => {
     $("#login-section").css({display:'none'});
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'block'});
@@ -70,7 +70,7 @@ $('#btn-login').on('click', () => {
     $('#equipment-section').css({display: 'none'});
     $('#monitoring-section').css({display: 'none'});
 
-});
+});*/
 
 $('#nav-dashboard').on('click', () => {
     $('#field-section').css({display: 'none'});
