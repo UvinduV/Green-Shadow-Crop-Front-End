@@ -1,7 +1,7 @@
 $("#login-section").css({display:'none'});
 $("#signup-section").css({display:'none'});
 $("#home").show();
-$("#navLink-section").show();
+$("#navLink-section").hide();
 $("#dashboard-section").css({display: 'none'});
 $('#field-section').css({display: 'none'});
 $('#crop-section').css({display: 'none'});
@@ -173,7 +173,7 @@ $('#btn-logOut').on('click', () => {
     $("#signup-section").css({display:'none'});
     $("#dashboard-section").css({display: 'none'});
     $("#home").show();
-    $("#navLink-section").show();
+    $("#navLink-section").hide();
     $('#crop-section').css({display: 'none'});
     $('#staff-section').css({display: 'none'});
     $('#vehicle-section').css({display: 'none'});
