@@ -7,28 +7,29 @@
 }
 
 .bg-c-blue {
-    background: linear-gradient(45deg,#4099ff,#73b4ff);
+    background: linear-gradient(45deg, #456704, #b7f306);
 }
 
 .bg-c-green {
-    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+    background: linear-gradient(45deg, #086352,#59e0c5);
 }
 
 .bg-c-yellow {
-    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+    background: linear-gradient(45deg, #66088a, #a170d5);
 }
 
 .bg-c-pink {
-    background: linear-gradient(45deg,#FF5370,#ff869a);
+    background: linear-gradient(45deg, #c13806, #f38555);
 }
 
 
 .card {
-    border-radius: 5px;
+    border-radius: 0 20px 0 20px;
     -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-left: 20px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
@@ -47,4 +48,9 @@
 
 .f-right {
     float: right;
+}
+#dashboard-section h1{
+    color: #ffffff;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-weight: bolder;
 }
