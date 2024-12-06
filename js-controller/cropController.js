@@ -7,6 +7,9 @@ function loadCrops() {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/crops",
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (crops) {
             console.log("Crops loaded:", crops);
@@ -55,7 +58,7 @@ function loadCrops() {
         },
         error: function (xhr, status, error) {
             console.error("Failed to load vehicle:", error);
-            alert("An error occurred while loading the crop data.");
+            //alert("An error occurred while loading the crop data.");
         },
     });
 }
@@ -68,6 +71,9 @@ $("#crop-table").on("click", ".delete-button", function () {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/crops/${cropCode}`,
         method: "DELETE",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (results) {
             console.log(results);
@@ -99,6 +105,9 @@ function saveCrop() {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         success: function (fieldCode) {
             console.log("load field code:", fieldCode);
             const formData = new FormData();
@@ -113,6 +122,9 @@ function saveCrop() {
             $.ajax({
                 url: "http://localhost:5050/greenShadowCrop/api/v1/crops",
                 method: "POST",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
                 contentType: false,
                 processData: false,
                 data: formData,
@@ -152,6 +164,9 @@ function updateCrop() {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         success: function (fieldCode) {
             console.log("load field code:", fieldCode);
             const formData = new FormData();
@@ -166,6 +181,9 @@ function updateCrop() {
             $.ajax({
                 url: `http://localhost:5050/greenShadowCrop/api/v1/crops/${cropCode}`,
                 method: "PUT",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
                 contentType: false,
                 processData: false,
                 data: formData,

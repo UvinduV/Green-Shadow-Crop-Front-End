@@ -6,6 +6,9 @@ function loadFields() {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/fields",
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (fields) {
             console.log("Fields loaded:", fields);
@@ -55,7 +58,7 @@ function loadFields() {
         },
         error: function (xhr, status, error) {
             console.error("Failed to load fields:", error);
-            alert("An error loading the field data.");
+            //alert("An error loading the field data.");
         },
     });
 }
@@ -69,6 +72,9 @@ function saveField() {
     $.ajax({
         url: url,
         method: "POST",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         data: JSON.stringify({
             fieldName: fieldName,
@@ -112,6 +118,9 @@ function updateFields() {
     $.ajax({
         url: url,
         method: "PUT",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         data: JSON.stringify({
             fieldName: fieldName,
@@ -157,6 +166,9 @@ function uploadImage() {
     $.ajax({
         url: url,
         method: "POST",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: false,
         processData: false,
         data: formData,
@@ -191,6 +203,9 @@ $("#fields-table").on("click", ".delete-button", function () {
     $.ajax({
         url: url,
         method: "DELETE",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (results) {
             console.log(results);

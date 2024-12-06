@@ -17,6 +17,16 @@ $(document).ready(function () {
             $('#vehicle-section').css({display: 'none'});
             $('#equipment-section').css({display: 'none'});
             $('#monitoring-section').css({display: 'none'});
+
+            /*load combo box*/
+            fetchFieldNames("field_details");
+            fetchFieldNames("staff_field_details");
+            fetchFieldNames("log_field_details");
+            fetchStaffNames("log_staff_details");
+            fetchStaffNames("vehicle_staff_details");
+            fetchFieldNames("equip_field_details");
+            fetchStaffNames("equip_staff_details");
+            fetchCropNames("log_crop_details");
         }
     });
 });
@@ -77,7 +87,7 @@ function signIn() {
                 icon: "success",
             });
             console.log("Signup successful:", response);
-            localStorage.setItem("token", response.token);
+            localStorage.setItem("token",response.token);
             window.location.href = "#dashboard-section";
             console.log("Hash after login:", window.location.hash);
         },

@@ -6,6 +6,9 @@ function loadStaff() {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/staff",
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (staff) {
             console.log("Staff loaded:", staff);
@@ -85,7 +88,7 @@ function loadStaff() {
         },
         error: function (xhr, status, error) {
             console.error("Failed to load staff:", error);
-            alert("An error loading the staff data.");
+            //alert("An error loading the staff data.");
         },
     });
 }
@@ -98,6 +101,9 @@ $("#staff-table").on("click", ".delete-button", function () {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/staff/${staffId}`,
         method: "DELETE",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (results) {
             fetchStaffNames("vehicle_staff_details")
@@ -144,11 +150,17 @@ function saveStaff() {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         success: function (fieldCode) {
             console.log("load field code:", fieldCode);
             $.ajax({
                 url: "http://localhost:5050/greenShadowCrop/api/v1/staff",
                 type: "POST",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
                 contentType: "application/json",
                 data: JSON.stringify({
                     firstName: first_name,
@@ -225,6 +237,9 @@ function updateStaff() {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${fieldName}`,
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         success: function (fieldCode) {
             console.log("load field code:", fieldCode);
 
@@ -254,6 +269,9 @@ function updateStaff() {
             $.ajax({
                 url: `http://localhost:5050/greenShadowCrop/api/v1/staff/${staffId}`,
                 type: "PUT",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
                 contentType: "application/json",
                 data: JSON.stringify(updatedStaffData),
                 success: function () {

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     fetchFieldNames("field_details");
     fetchFieldNames("staff_field_details");
     fetchFieldNames("log_field_details");
@@ -7,12 +7,17 @@ $(document).ready(function () {
     fetchFieldNames("equip_field_details");
     fetchStaffNames("equip_staff_details");
     fetchCropNames("log_crop_details");
-});
+});*/
 
 function fetchCropNames(targetElementId) {
+    const token= localStorage.getItem("token")
+    console.log("token crop name:"+token)
     $.ajax({
         url: " http://localhost:5050/greenShadowCrop/api/v1/crops/getAllCropNames",
         type: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
         contentType: "application/json",
         success: function (response) {
             console.log("Crop name: ", response);
@@ -38,6 +43,9 @@ function fetchFieldNames(targetElementId) {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/fields/getAllFieldNames",
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (response) {
             console.log("Field name: ", response);
@@ -62,6 +70,9 @@ function fetchStaffNames(targetElementId) {
     $.ajax({
         url: " http://localhost:5050/greenShadowCrop/api/v1/staff/getAllStaffNames",
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (response) {
             console.log("Staff name: ", response);

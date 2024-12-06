@@ -6,6 +6,9 @@ function loadLogs() {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/logs",
         method: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (log) {
             console.log("Logs loaded:", log);
@@ -46,7 +49,7 @@ function loadLogs() {
         },
         error: function (xhr, status, error) {
             console.error("Failed to load logs:", error);
-            alert("An error loading the log data.");
+            //alert("An error loading the log data.");
         },
     });
 }
@@ -59,7 +62,9 @@ $("#log-table").on("click", ".delete-button", function () {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/logs/${logId}`,
         method: "DELETE",
-
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (results) {
             console.log(results);
@@ -96,6 +101,9 @@ function saveLog() {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/logs",
         method: "POST",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: false,
         processData: false,
         data: formData,

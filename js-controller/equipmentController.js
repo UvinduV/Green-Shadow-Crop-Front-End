@@ -8,6 +8,9 @@ function loadEquipment() {
     $.ajax({
         url: "http://localhost:5050/greenShadowCrop/api/v1/equipment",
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (equipment) {
             console.log("Equipment loaded:", equipment);
@@ -53,7 +56,7 @@ function loadEquipment() {
         },
         error: function (xhr, status, error) {
             console.error("Failed to load equipment:", error);
-            alert("An error occurred while loading the equipment data.");
+            //alert("An error occurred while loading the equipment data.");
         },
     });
 }
@@ -66,6 +69,9 @@ $("#equipment-table").on("click", ".delete-button", function () {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/equipment/${equipId}`,
         method: "DELETE",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         contentType: "application/json",
         success: function (results) {
             console.log(results);
@@ -99,16 +105,25 @@ function saveEquipment() {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/staff/getStaffId/${assigned_staff}`,
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         success: function (staffId) {
             console.log("load Staff Id:", staffId);
             $.ajax({
                 url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${assigned_field}`,
                 type: "GET",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
                 success: function (fieldCode) {
                     console.log("load field code:", fieldCode);
                     $.ajax({
                         url: "http://localhost:5050/greenShadowCrop/api/v1/equipment",
                         type: "POST",
+                        headers: {
+                            Authorization: "Bearer " + localStorage.getItem("token"),
+                        },
                         contentType: "application/json",
                         data: JSON.stringify({
                             name: equipment_name,
@@ -167,11 +182,17 @@ function updateEquipment() {
     $.ajax({
         url: `http://localhost:5050/greenShadowCrop/api/v1/staff/getStaffId/${assigned_staff}`,
         type: "GET",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        },
         success: function (staffId) {
             console.log("load Staff Id:", staffId);
             $.ajax({
                 url: `http://localhost:5050/greenShadowCrop/api/v1/fields/getFieldCode/${assigned_field}`,
                 type: "GET",
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
                 success: function (fieldCode) {
                     console.log("load field code:", fieldCode);
 
@@ -188,6 +209,9 @@ function updateEquipment() {
                     };
 
                     $.ajax({
+                        headers: {
+                            Authorization: "Bearer " + localStorage.getItem("token"),
+                        },
                         url: `http://localhost:5050/greenShadowCrop/api/v1/equipment/${equip_id}`,
                         type: "PATCH",
                         contentType: "application/json",
