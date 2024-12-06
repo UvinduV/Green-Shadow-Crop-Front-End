@@ -85,25 +85,28 @@
 <!-- login Form -->
 <section id="login-section">
     <div class="container vh-100 d-flex align-items-center justify-content-center">
-        <div class="row fa-align-justify">
-            <div class="col-md-12">
-                <div class="card shadow">
-                    <h3 class="text-center text-success">Welcome Back to Green Shadow</h3>
-                    <p class="text-center">Login to manage your farm records</p>
-                    <form>
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="loginEmail" required placeholder="Enter email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" required placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-success w-100" id="btn-login">Login</button>
-                    </form>
+        <div class="col-md-4 col-sm-12">
+            <!-- Form Section -->
+            <div class="form-card overflow-hidden">
+
+                <div class="card-body col-md-12">
+                    <h3 class="text-center text-success">Welcome Back!</h3>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter Your Email " id="loginEmail">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control mb-4 shadow-none" placeholder="Enter Your Password" id="loginPassword">
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-warning w-100" id="btn-login" onclick="" >Login</button>
+                    </div>
                     <p class="text-center mt-3">
                         Don't have an account? <a id="show-signup" class="text-success" onclick="toggleForms()">Sign up here</a>
                     </p>
+
                 </div>
             </div>
         </div>
@@ -113,37 +116,41 @@
 <!--signup section -->
 <section id="signup-section">
     <div class="container vh-100 d-flex align-items-center justify-content-center" style="display: none;" id="signupForm">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card shadow p-4">
-                    <h3 class="text-center text-success">Join Green Shadow</h3>
-                    <form>
-                        <div class="mb-3">
-                            <label for="signupEmail" class="form-label">Email</label>
-                            <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupPassword" class="form-label">Password</label>
-                            <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="login-role" class="form-label">Role</label>
-                            <select id="login-role" class="form-control">
-                                <option value="">Select Role</option>
-                                <option value="manager">Manager</option>
-                                <option value="scientist">Scientist</option>
-                                <option value="worker">Worker</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100">Sign Up</button>
-                    </form>
+        <div class="col-md-4 col-sm-12">
+            <!-- Form Section -->
+            <div class="form-card overflow-hidden">
+
+                <div class="card-body col-md-12">
+                    <h3 class="text-center text-success">Join Now.</h3>
+                    <div class="form-group">
+                        <label for="signupEmail" class="form-label">Email</label>
+                        <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-role" class="form-label">Role</label>
+                        <select id="login-role" class="form-control">
+                            <option value="">Select Role</option>
+                            <option value="manager">Manager</option>
+                            <option value="scientist">Scientist</option>
+                            <option value="worker">Worker</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-warning w-100" onclick="">Sign Up</button>
+                    </div>
                     <p class="text-center mt-3">
-                        Already have an account? <a id="show-login" class="text-success" onclick="toggleForms()">Login here</a>
+                        Already have an account? <a id="show-login" class="text-success" href="#login-section">Login here</a>
                     </p>
+
                 </div>
             </div>
         </div>
