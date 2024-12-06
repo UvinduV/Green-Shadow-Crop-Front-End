@@ -50,3 +50,83 @@ function loadLogs() {
         },
     });
 }
+
+$("#log-table").on("click", ".delete-button", function () {
+    const row = $(this).closest("tr");
+
+    const logId = row.find(".log-id-value").text();
+
+    $.ajax({
+        url: `http://localhost:5050/greenShadowCrop/api/v1/logs/${logId}`,
+        method: "DELETE",
+
+        contentType: "application/json",
+        success: function (results) {
+            console.log(results);
+            Swal.fire({
+                title: "Log Delete",
+                text: "Log Successfully Deleted",
+                icon: "success",
+            });
+            loadLogs();
+        },
+        error: function (error) {
+            console.log("Status:", status);
+            console.log("Error:", error);
+            Swal.fire({
+                title: "Log Delete",
+                text: "Log Delete Unsuccessfull",
+                icon: "error",
+            });
+            loadLogs();
+        },
+    });
+});
+
+function saveLog() {
+    const formData = new FormData();
+
+    formData.append("logDate", $("#log_date").val());
+    formData.append("logDetails", $("#log_desc").val());
+    formData.append("observedImage", $("#log_image")[0].files[0]);
+    formData.append("fields", "");
+    formData.append("crops", "");
+    formData.append("staff", "");
+
+    $.ajax({
+        url: "http://localhost:5050/greenShadowCrop/api/v1/logs",
+        method: "POST",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (result) {
+            console.log(result);
+            clearLogForm();
+            Swal.fire({
+                title: "Log Save",
+                text: "Log Successfully Saved",
+                icon: "success",
+            });
+            loadLogs();
+        },
+        error: function (result) {
+            console.log(result);
+            clearLogForm();
+            Swal.fire({
+                title: "Log Save",
+                text: "Log Save Unsuccessfull",
+                icon: "error",
+            });
+        },
+    });
+}
+
+function clearLogForm() {
+    $("#log_id").val("");
+    $("#log_date").val("");
+    $("#log_desc").val("");
+    $("#log_image").val("");
+    $("#log_field_details").val("");
+    $("#log_crop_details").val("");
+    $("#log_staff_details").val("");
+}
