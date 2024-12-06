@@ -6,7 +6,33 @@ $(document).ready(function () {
     fetchStaffNames("vehicle_staff_details");
     fetchFieldNames("equip_field_details");
     fetchStaffNames("equip_staff_details");
+    fetchCropNames("log_crop_details");
 });
+
+function fetchCropNames(targetElementId) {
+    $.ajax({
+        url: " http://localhost:5050/greenShadowCrop/api/v1/crops/getAllCropNames",
+        type: "GET",
+        contentType: "application/json",
+        success: function (response) {
+            console.log("Crop name: ", response);
+
+            $(`#${targetElementId}`)
+                .empty()
+                .append($("<option>", { value: "", text: "Select Crop" }));
+
+            response.forEach((crop) => {
+                console.log(crop);
+                $(`#${targetElementId}`).append(
+                    $("<option>", { value: crop, text: crop })
+                );
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Error loading crop names:", status, error);
+        },
+    });
+}
 
 function fetchFieldNames(targetElementId) {
     $.ajax({
