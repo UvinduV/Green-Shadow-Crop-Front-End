@@ -13,6 +13,27 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     overflow-y: hidden;
+    justify-content: center;
+    animation: change 10s infinite ease-in-out;
+}
+@keyframes change {
+    0%
+    {
+        background-image: url("/assets/image/welcome.png");
+    }
+    30%
+    {
+        background-image: url("/assets/image/homebg.jpg");
+    }
+    60%
+    {
+        background-image: url("/assets/image/bg3.jpg");
+    }
+    100%
+    {
+        background-image: url("/assets/image/bg4.jpg");
+    }
+
 }
 
 /* navbar */
